@@ -1,0 +1,19 @@
+
+//반응형
+$breakpoint-mobile: 360px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+@mixin mobile {
+  // 0~767px
+  @media (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  //1024px 이상 데스크탑
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}

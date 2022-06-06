@@ -1,3 +1,12 @@
+$mainColor: #5056b7;
+$borderColor: #e6e4e4;
+
+$barTitleWidth: 380px;
+$menuNavWidth: 80px;
+
+@mixin borderRight {
+  border-right: 1.5px solid $borderColor;
+}
 
 //반응형
 $breakpoint-mobile: 360px;

@@ -1,11 +1,88 @@
+@import "../mixin/variables";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
 .headerContainer {
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
+  line-height: 60px;
   font-size: 30px;
+  border-bottom: 1px solid $mainColor;
+}
+
+// .barContainer {
+//   height: 50px;
+//   display: flex;
+//   border: 1.5px solid $borderColor;
+//   .barTitle {
+//     width: $barTitleWidth;
+//     height: 100%;
+//     display: flex;
+//     // align-items: center;
+//     border-right: 1.5px solid $borderColor;
+//   }
+//   .tabBar {
+//     width: 100%;
+//   }
+// }
+
+.contentsContainer {
+  display: flex;
+  height: 100%;
+
+  .workSpaceWrap {
+    width: $barTitleWidth;
+    .barTitle {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      @include borderRight;
+      border-bottom: 1.5px solid $borderColor;
+    }
+    .categoryWrap {
+      display: flex;
+      height: 100%;
+      .menuNav {
+        width: $menuNavWidth;
+        height: 100%;
+        @include borderRight;
+        .menuWrap {
+          li {
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &:hover {
+              background-color: $borderColor;
+            }
+          }
+        }
+      }
+      aside {
+        width: calc($barTitleWidth - $menuNavWidth);
+        @include borderRight;
+      }
+    }
+  }
+  .contentsWrap {
+    width: 100%;
+    .tabBar {
+      height: 50px;
+      border-bottom: 1.5px solid $borderColor;
+    }
+  }
 }

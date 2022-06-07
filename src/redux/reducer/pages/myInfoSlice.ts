@@ -1,6 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const initialState = {
+interface myInfoProps{
+
+}
+
+const initialState:myInfoProps = {
     
 }
 
@@ -12,5 +16,5 @@ export const myInfoSlice = createSlice({
     }
 });
 
-export const { } = myInfoSlice.actions;
+export const {} = myInfoSlice.actions;
 export default myInfoSlice.reducer;

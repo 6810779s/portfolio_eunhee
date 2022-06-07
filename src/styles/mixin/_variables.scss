@@ -5,7 +5,7 @@ $barTitleWidth: 380px;
 $menuNavWidth: 80px;
 
 @mixin borderRight {
-  border-right: 1.5px solid $borderColor;
+  border-right: 1px solid $borderColor;
 }
 
 //반응형

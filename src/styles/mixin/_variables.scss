@@ -3,6 +3,7 @@ $borderColor: #e6e4e4;
 
 $barTitleWidth: 380px;
 $menuNavWidth: 80px;
+$homePaddingTop: 100px;
 
 @mixin borderRight {
   border-right: 1px solid $borderColor;

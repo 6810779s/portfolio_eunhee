@@ -5,7 +5,6 @@ import styles from '../styles/page/Home.module.scss'
 
 const Home = () => {
     return (
-        <AppLayout>
             <div className={styles.container}>
                 <div className={styles.myPhoto}><p>image</p></div>
                 <div className={styles.greetStyle}>
@@ -17,7 +16,6 @@ const Home = () => {
                     <KeyboardDoubleArrowDownIcon className={styles.arrowStyle}/>
                 </div>
             </div>
-        </AppLayout>
        
     );
 };

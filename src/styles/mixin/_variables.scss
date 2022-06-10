@@ -1,5 +1,6 @@
 $mainColor: #5056b7;
 $borderColor: #e6e4e4;
+$borderColor2: #f2f2f2;
 
 $barTitleWidth: 380px;
 $menuNavWidth: 80px;
@@ -7,6 +8,23 @@ $homePaddingTop: 100px;
 
 @mixin borderRight {
   border-right: 1px solid $borderColor;
+}
+
+@mixin reWrapStyle {
+  margin-top: 20px;
+
+  .codeBox {
+    border: 1.5px solid $borderColor;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px 10px;
+    line-height: 40px;
+    p {
+      span {
+        color: #a3715e;
+      }
+    }
+  }
 }
 
 //반응형

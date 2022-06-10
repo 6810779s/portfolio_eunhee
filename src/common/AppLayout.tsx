@@ -36,7 +36,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     },[])
  
     return (
-        <div style={{height:"100%"}}>
+        <div style={{ height:"100%"}}>
             <header className={styles.headerContainer}>Eunhee's Portfolio</header>
             <div className={styles.contentsContainer}>
                 <div className={styles.workSpaceWrap}>

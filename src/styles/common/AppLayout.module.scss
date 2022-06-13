@@ -67,6 +67,7 @@ li {
           height: 50px;
           line-height: 50px;
           padding-left: 20px;
+
           span {
             font-size: 13px;
           }
@@ -76,6 +77,18 @@ li {
           .postStyle {
             color: #f6cb78;
           }
+          .putStyle {
+            color: #5f93ea;
+          }
+
+          &:hover {
+            background-color: $borderColor;
+            cursor: pointer;
+          }
+        }
+        .currentSubMenu {
+          border-left: 3px solid $mainColor;
+          background-color: $borderColor;
         }
       }
     }

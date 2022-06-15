@@ -1,4 +1,4 @@
-interface historyProps {
+export interface historyProps {
   time: string;
   imgSrc: string;
   title: string;

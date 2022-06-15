@@ -33,42 +33,104 @@
 }
 
 //히스토리
-.historyWrap {
-  li {
+.historyContainer {
+  position: relative;
+  .scrollBtnDown {
+    position: absolute;
+    top: 250px;
+    right: 10px;
     display: flex;
-    align-content: center;
-    align-items: center;
-    padding: 15px 0;
-    .time {
-      width: 150px;
-      text-align: right;
-      color: gray;
+    flex-direction: column;
+    z-index: 99;
+    .downIcon {
+      animation: 0.8s downAction 1s linear infinite alternate;
     }
-    .imgSrc {
-      width: 150px;
-      text-align: center;
+    .upIcon {
+      animation: 0.8s upAction 1s linear infinite alternate;
+    }
+  }
+  .scrollBtnUp {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+    .downIcon {
+      animation: 0.8s downAction 1s linear infinite alternate;
+    }
+    .upIcon {
+      animation: 0.8s upAction 1s linear infinite alternate;
+    }
+  }
+  .historyWrap {
+    li {
+      height: 80px;
       display: flex;
-      justify-content: center;
       align-content: center;
-      .historyImg {
-        width: 80px;
-        height: 80px;
-        padding: 10px;
-        border-radius: 50%;
-        // border: 1px solid $mainColor;
-        background-color: $mainColor2;
+      align-items: center;
+      margin-bottom: 25px;
+      animation: listAction 1s linear 2 alternate;
+      .time {
+        width: 150px;
+        text-align: right;
+        color: gray;
+      }
+      .imgSrc {
+        width: 150px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        .historyImg {
+          width: 80px;
+          height: 80px;
+          padding: 10px;
+          border-radius: 50%;
+          background-color: $mainColor2;
+          box-shadow: 10px 5px 5px $borderColor;
+        }
+      }
+      .title {
+        border-radius: 15px;
+        border: 1px solid $borderColor;
+        padding: 0 15px;
+        flex: 1;
+        box-shadow: 10px 5px 5px $borderColor;
+        .fontStyle {
+          color: black;
+          font-size: 16px;
+          border-top: 1px solid $borderColor;
+        }
       }
     }
-    .title {
-      border-radius: 15px;
-      border: 1px solid $borderColor;
-      padding: 5px 15px;
-      flex: 1;
-      .fontStyle {
-        color: black;
-        font-size: 16px;
-        border-top: 1px solid $borderColor;
-      }
-    }
+  }
+}
+
+@keyframes downAction {
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 7px;
+  }
+}
+
+@keyframes upAction {
+  from {
+    margin-top: 7px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+
+@keyframes listAction {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(90deg);
   }
 }

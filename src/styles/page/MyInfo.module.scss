@@ -34,43 +34,21 @@
 
 //히스토리
 .historyContainer {
-  position: relative;
-  .scrollBtnDown {
-    position: absolute;
-    top: 250px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    z-index: 99;
-    .downIcon {
-      animation: 0.8s downAction 1s linear infinite alternate;
-    }
-    .upIcon {
-      animation: 0.8s upAction 1s linear infinite alternate;
-    }
-  }
-  .scrollBtnUp {
-    position: absolute;
-    top: 250px;
-    left: 10px;
-    display: flex;
-    flex-direction: column;
-    z-index: 99;
-    .downIcon {
-      animation: 0.8s downAction 1s linear infinite alternate;
-    }
-    .upIcon {
-      animation: 0.8s upAction 1s linear infinite alternate;
-    }
-  }
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: all 1s ease-in;
+
   .historyWrap {
     li {
+      min-width: $minWidth;
       height: 80px;
       display: flex;
       align-content: center;
       align-items: center;
       margin-bottom: 25px;
       animation: listAction 1s linear 2 alternate;
+      padding: 0 20px;
       .time {
         width: 150px;
         text-align: right;
@@ -93,6 +71,7 @@
         }
       }
       .title {
+        min-width: 300px;
         border-radius: 15px;
         border: 1px solid $borderColor;
         padding: 0 15px;
@@ -107,22 +86,43 @@
     }
   }
 }
+.btnContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-50%);
+  top: 50%;
+  .scrollBtnDown {
+    margin-top: 10px;
+    .downIcon {
+      font-size: 30px;
+      animation: 0.8s downAction 0.5s linear infinite alternate;
+    }
+  }
+  .scrollBtnUp {
+    margin-bottom: 10px;
+    .upIcon {
+      font-size: 30px;
+      animation: 0.8s upAction 0.5s linear infinite alternate;
+    }
+  }
+}
 
 @keyframes downAction {
   from {
-    margin-top: 0px;
+    transform: translateY(-60%);
   }
   to {
-    margin-top: 7px;
+    transform: translateY(-80%);
   }
 }
 
 @keyframes upAction {
   from {
-    margin-top: 7px;
+    transform: translateY(-40%);
   }
   to {
-    margin-top: 0px;
+    transform: translateY(-20%);
   }
 }
 

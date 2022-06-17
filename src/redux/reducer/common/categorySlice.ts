@@ -6,8 +6,8 @@ interface categoryProps {
 }
 
 const initialState: categoryProps = {
-  currentMenuName: 'My Info',
-  currentSubMenuName: 'PUT/히스토리',
+  currentMenuName: 'Project',
+  currentSubMenuName: '프로젝트 소개',
 };
 export const categorySlice = createSlice({
   name: 'category',

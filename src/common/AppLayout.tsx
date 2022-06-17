@@ -12,13 +12,19 @@ import { RootState } from '../redux/configureStore';
 import classNames from 'classnames/bind';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useDispatch } from 'react-redux';
-import { changeSubMenuName } from '../redux/reducer/common/categorySlice';
+import {
+  changeMenuName,
+  changeSubMenuName,
+} from '../redux/reducer/common/categorySlice';
 
 const cx = classNames.bind(styles);
-type AppLayoutProps = {
+interface AppLayoutProps {
   children: React.ReactNode;
-};
-
+}
+interface menuProps {
+  menuName: string;
+  subMenuName: string;
+}
 const AppLayout = ({ children }: AppLayoutProps) => {
   const dispatch = useDispatch();
   const { currentMenuName, currentSubMenuName } = useSelector(
@@ -29,6 +35,19 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     e: React.MouseEvent<HTMLLIElement>
   ) => {
     dispatch(changeSubMenuName(menuName));
+  };
+  // const clickHomeHandler = (
+  //   menuName: string,
+  //   e: React.MouseEvent<HTMLHeadElement>
+  // ) => {
+  //   dispatch(changeMenuName(menuName));
+  // };
+  const clickMenuHandler = (
+    menuName: menuProps,
+    e: React.MouseEvent<HTMLElement>
+  ) => {
+    dispatch(changeMenuName(menuName.menuName));
+    dispatch(changeSubMenuName(menuName.subMenuName));
   };
   const category = useCallback((): JSX.Element[] => {
     let categoryArr: JSX.Element[] = [];
@@ -60,7 +79,14 @@ const AppLayout = ({ children }: AppLayoutProps) => {
 
   return (
     <div style={{ height: '100%' }}>
-      <header className={styles.headerContainer}>Eunhee's Portfolio</header>
+      <header
+        className={styles.headerContainer}
+        onClick={(e) =>
+          clickMenuHandler({ menuName: 'My Info', subMenuName: '첫 인사' }, e)
+        }
+      >
+        Eunhee's Portfolio
+      </header>
       <div className={styles.contentsContainer}>
         <div className={styles.workSpaceWrap}>
           <div className={styles.barTitle}>
@@ -74,6 +100,12 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   className={cx({
                     currrentMenuStyle: currentMenuName === 'My Info',
                   })}
+                  onClick={(e) =>
+                    clickMenuHandler(
+                      { menuName: 'My Info', subMenuName: 'GET/프로필' },
+                      e
+                    )
+                  }
                 >
                   <InfoIcon />
                   <p>My Info</p>
@@ -83,6 +115,12 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   className={cx({
                     currrentMenuStyle: currentMenuName === 'Project',
                   })}
+                  onClick={(e) =>
+                    clickMenuHandler(
+                      { menuName: 'Project', subMenuName: '프로젝트 소개' },
+                      e
+                    )
+                  }
                 >
                   <AutoGraphIcon />
                   <p>Project</p>
@@ -91,6 +129,15 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   className={cx({
                     currrentMenuStyle: currentMenuName === 'Why me?',
                   })}
+                  onClick={(e) =>
+                    clickMenuHandler(
+                      {
+                        menuName: 'Why me?',
+                        subMenuName: '저를 선택하셔야 되는 이유는요..!',
+                      },
+                      e
+                    )
+                  }
                 >
                   <QuizIcon />
                   <p>Why me?</p>
@@ -99,6 +146,12 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   className={cx({
                     currrentMenuStyle: currentMenuName === 'View all',
                   })}
+                  onClick={(e) =>
+                    clickMenuHandler(
+                      { menuName: 'View all', subMenuName: '한눈에 보기' },
+                      e
+                    )
+                  }
                 >
                   <PreviewIcon />
                   <p>View all</p>

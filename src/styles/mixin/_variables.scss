@@ -7,6 +7,7 @@ $barTitleWidth: 380px;
 $menuNavWidth: 80px;
 $homePaddingTop: 100px;
 
+$minWidth: 500px;
 @mixin borderRight {
   border-right: 1px solid $borderColor;
 }

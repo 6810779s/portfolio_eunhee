@@ -57,11 +57,9 @@ const History = () => {
       scrollDownBtn.current &&
       scrollUpBtn.current
     ) {
-      if (bottomNum >= 0 && bottomNum < 500) {
-        const value = bottomNum + 250;
-        historyContainer.current.style.bottom = `${value}px`;
-        scrollUpBtn.current.style.top = `${value + 250}px`;
-        scrollDownBtn.current.style.top = `${value + 250}px`;
+      if (bottomNum >= 0 && bottomNum <= 200) {
+        const value = bottomNum + 200;
+        historyContainer.current.style.transform = `translateY(-${value}px)`;
         setBottomNum(value);
       }
     }
@@ -73,11 +71,9 @@ const History = () => {
       scrollUpBtn.current &&
       scrollDownBtn.current
     ) {
-      if (bottomNum > 0 && bottomNum <= 500) {
-        const value = bottomNum - 250;
-        historyContainer.current.style.bottom = `${value}px`;
-        scrollUpBtn.current.style.top = `${value + 250}px`;
-        scrollDownBtn.current.style.top = `${value + 250}px`;
+      if (bottomNum > 0 && bottomNum <= 400) {
+        const value = bottomNum - 200;
+        historyContainer.current.style.transform = `translateY(-${value}px)`;
         setBottomNum(value);
       }
     }
@@ -91,21 +87,21 @@ const History = () => {
     <MyInfoLayout>
       <div className={styles.historyContainer} ref={historyContainer}>
         <ul className={styles.historyWrap} ref={liElement}></ul>
-        <Button
-          className={styles.scrollBtnDown}
-          ref={scrollDownBtn}
-          onClick={scrollDown}
-        >
-          Click
-          <KeyboardDoubleArrowDownIcon className={styles.downIcon} />
-        </Button>
+      </div>
+      <div className={styles.btnContainer}>
         <Button
           className={styles.scrollBtnUp}
           ref={scrollUpBtn}
           onClick={scrollUp}
         >
-          Click
           <KeyboardDoubleArrowUpIcon className={styles.upIcon} />
+        </Button>
+        <Button
+          className={styles.scrollBtnDown}
+          ref={scrollDownBtn}
+          onClick={scrollDown}
+        >
+          <KeyboardDoubleArrowDownIcon className={styles.downIcon} />
         </Button>
       </div>
     </MyInfoLayout>

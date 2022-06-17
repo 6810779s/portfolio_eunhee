@@ -80,8 +80,10 @@
       color: gray;
     }
     .codeBox {
-      max-height: 340px;
+      min-width: $minWidth;
+      height: 350px;
       overflow: hidden;
+      position: relative;
       p {
         color: #3b6d96;
       }

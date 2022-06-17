@@ -1,0 +1,73 @@
+@import '../mixin/variables';
+.projectsListWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  li {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    border: 1px solid $borderColor;
+    &:hover {
+      cursor: pointer;
+    }
+    .img {
+      height: 180px;
+      border: 1px solid $borderColor;
+    }
+    .name {
+      height: calc((300px - 180px) / 2);
+      border: 1px solid $borderColor;
+      font-size: 20px;
+      font-weight: 700;
+      word-break: keep-all;
+      line-height: 32px;
+    }
+  }
+}
+
+.projectDetailWrap {
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: 120px;
+  .mainImg {
+    width: 100%;
+    height: 200px;
+  }
+  .detailWrap {
+    .descriptionSimple {
+      padding: 15px 0;
+      display: flex;
+      li {
+        align-items: center;
+        height: 50px;
+        padding: 10px 0;
+        font-size: 18px;
+        display: flex;
+
+        .iconStyle {
+          margin-right: 7px;
+          color: #a5a4a1;
+        }
+      }
+      .detail {
+        flex: 1;
+        color: #5e5d5c;
+        // font-weight: 700;
+      }
+      .detailDescription {
+        flex: 3;
+      }
+    }
+    .descriptionDetail {
+      padding: 15px 0;
+      .label {
+        font-size: 18px;
+        font-weight: 700;
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+  }
+}

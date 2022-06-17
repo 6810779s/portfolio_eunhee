@@ -1,19 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-interface myInfoProps{
+interface myInfoProps {}
 
-}
-
-const initialState:myInfoProps = {
-    
-}
+const initialState: myInfoProps = {};
 
 export const myInfoSlice = createSlice({
-    name: "myInfo",
-    initialState,
-    reducers: {
-        
-    }
+  name: 'myInfo',
+  initialState,
+  reducers: {},
 });
 
 export const {} = myInfoSlice.actions;

@@ -11,10 +11,21 @@ import LinkIcon from '@mui/icons-material/Link';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
+import { projectDetail } from '../../redux/reducer/pages/projectSlice';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 const ProjectDetail = () => {
+  const dispatch = useDispatch();
   const { projectInfo } = useSelector((state: RootState) => state.project);
-
+  const back = () => {
+    dispatch(projectDetail(0));
+  };
+  // const skillItems = (list): JSX.Element[] => {
+  //   let items: JSX.Element[] = [];
+  //   list.map((v) => items.push);
+  //   return list;
+  // };
   const simpleItems = useCallback(
     (key: string): JSX.Element[] => {
       let itemArr: JSX.Element[] = [];
@@ -28,13 +39,21 @@ const ProjectDetail = () => {
           </li>
           <li>
             {key === 'label' && <LanguageIcon className={styles.iconStyle} />}
-            {projectInfo!.language[key]}
+            <div className={styles.bedgeWrap}>
+              {projectInfo!.language[key].split('/').map((v) => (
+                <p className={styles.bedge}>{v}</p>
+              ))}
+            </div>
           </li>
           <li>
             {key === 'label' && (
               <AutoFixHighIcon className={styles.iconStyle} />
             )}
-            {projectInfo!.skills[key]}
+            <div className={styles.bedgeWrap}>
+              {projectInfo!.skills[key].split('/').map((v) => (
+                <p className={styles.bedge}>{v}</p>
+              ))}
+            </div>
           </li>
           <li>
             {key === 'label' && <PeopleIcon className={styles.iconStyle} />}
@@ -58,7 +77,11 @@ const ProjectDetail = () => {
             {key === 'label' && (
               <ManageAccountsIcon className={styles.iconStyle} />
             )}
-            {projectInfo!.charge[key]}
+            <div className={styles.bedgeWrap}>
+              {projectInfo!.charge[key].split('/').map((v) => (
+                <p className={styles.bedge}>{v}</p>
+              ))}
+            </div>
           </li>
           <li>
             {key === 'label' && (
@@ -118,6 +141,10 @@ const ProjectDetail = () => {
               </ul>
             </div>
           </div>
+          <Button className={styles.back} onClick={back}>
+            <KeyboardReturnIcon />
+            Back
+          </Button>
         </div>
       )}
     </>

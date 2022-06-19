@@ -15,12 +15,8 @@ import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { backAction } from '../../redux/reducer/pages/projectSlice';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { projects, projectsProps } from '../../module/projects';
-import {
-  changeMenuName,
-  changeSubMenuName,
-} from '../../redux/reducer/common/categorySlice';
 const ProjectDetail = () => {
   const dispatch = useDispatch();
   let params = useParams();
@@ -127,13 +123,13 @@ const ProjectDetail = () => {
     },
     [projectInfo]
   );
+  console.log(projectInfo?.mainImgSrc.description);
   return (
     <>
       {projectInfo && (
         <div className={styles.projectDetailWrap}>
           <div className={styles.mainImg}>
-            {/* <img src={projectInfo!.mainImgSrc.label}/> */}
-            <div>icon</div>
+            <img src={projectInfo.topImgSrc.description} />
           </div>
           <div className={styles.detailWrap}>
             <h1>{projectInfo!.name.description}</h1>

@@ -24,6 +24,7 @@ export interface projectsProps {
   solve: itemProps;
   achieve: itemProps;
   mainImgSrc: itemProps;
+  topImgSrc: itemProps;
 }
 
 export const projects: projectsProps[] = [
@@ -75,7 +76,14 @@ export const projects: projectsProps[] = [
       label: '해결방법',
       description: '이렇게 해결~~~~~~~~~~~~~~~~~~~~~~~~',
     },
-    mainImgSrc: { label: '메인 이미지', description: 'imgSrc' },
+    mainImgSrc: {
+      label: '메인 이미지',
+      description: '/projectImg/reserve/client/reserveProjectMainImg.png',
+    },
+    topImgSrc: {
+      label: '상단 이미지',
+      description: '/projectImg/reserve/client/topMainImg.png',
+    },
   },
   {
     num: 2,
@@ -124,7 +132,14 @@ export const projects: projectsProps[] = [
       label: '해결방법',
       description: '이렇게 해결~~~~~~~~~~~~~~~~~~~~~~~~',
     },
-    mainImgSrc: { label: '메인 이미지', description: 'imgSrc' },
+    mainImgSrc: {
+      label: '메인 이미지',
+      description: '/projectImg/reserve/admin/reserveProjectMainImg.png',
+    },
+    topImgSrc: {
+      label: '상단 이미지',
+      description: '/projectImg/reserve/admin/topMainImg.png',
+    },
   },
   {
     num: 3,
@@ -176,56 +191,63 @@ export const projects: projectsProps[] = [
       label: '해결방법',
       description: '이렇게 해결~~~~~~~~~~~~~~~~~~~~~~~~',
     },
-    mainImgSrc: { label: '메인 이미지', description: 'imgSrc' },
+    mainImgSrc: {
+      label: '메인 이미지',
+      description: '/projectImg/testPage/client/testProjectMainImg.png',
+    },
+    topImgSrc: {
+      label: '상단 이미지',
+      description: '/projectImg/testPage/client/topMainImg.png',
+    },
   },
-  {
-    num: 4,
-    name: { label: '프로젝트명', description: '검사 실시 관리자 페이지' },
-    date: { label: '개발 기간', description: '2022-02-01 ~ 2022-02-03' },
-    language: {
-      label: '개발 언어',
-      description: 'SCSS/React.js/Redux',
-    },
-    skills: { label: '사용 기술', description: 'Redux-saga/Rest API' },
-    people: {
-      label: '개발 인원',
-      description: '총 2명 - 백엔드 1명, 프론트엔드 1명',
-    },
-    launch: { label: '프로젝트 런칭 유무', description: '런칭중' },
-    link: {
-      label: '프로그램 링크',
-      description: 'http://counsel.guidance.co.kr:7100/',
-    },
-    codeLink: { label: '깃허브 코드', description: '비공개' },
-    charge: {
-      label: '맡은 역할',
-      description: '프론트엔드/UI/UX 기획',
-    },
-    responsive: { label: '반응형 유무', description: '반응형 페이지' },
-    description: {
-      label: '프로젝트 설명',
-      description: '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
-    },
-    achieve: { label: '성과', description: '~~~~~~~~~~~~~~~~~~~~~~~~~' },
-    function: {
-      label: '기능',
-      description: '~~~~~~~/~~~~~~~~~~/~~~~~~~',
-    },
-    clientView: {
-      label: '프로젝트 사용자 화면',
-      description: 'src1/src2',
-    },
-    problems: {
-      label: '문제점',
-      description:
-        '문제점~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
-    },
-    solve: {
-      label: '해결방법',
-      description: '이렇게 해결~~~~~~~~~~~~~~~~~~~~~~~~',
-    },
-    mainImgSrc: { label: '메인 이미지', description: 'imgSrc' },
-  },
+  // {
+  //   num: 4,
+  //   name: { label: '프로젝트명', description: '검사 실시 관리자 페이지' },
+  //   date: { label: '개발 기간', description: '2022-02-01 ~ 2022-02-03' },
+  //   language: {
+  //     label: '개발 언어',
+  //     description: 'SCSS/React.js/Redux',
+  //   },
+  //   skills: { label: '사용 기술', description: 'Redux-saga/Rest API' },
+  //   people: {
+  //     label: '개발 인원',
+  //     description: '총 2명 - 백엔드 1명, 프론트엔드 1명',
+  //   },
+  //   launch: { label: '프로젝트 런칭 유무', description: '런칭중' },
+  //   link: {
+  //     label: '프로그램 링크',
+  //     description: 'http://counsel.guidance.co.kr:7100/',
+  //   },
+  //   codeLink: { label: '깃허브 코드', description: '비공개' },
+  //   charge: {
+  //     label: '맡은 역할',
+  //     description: '프론트엔드/UI/UX 기획',
+  //   },
+  //   responsive: { label: '반응형 유무', description: '반응형 페이지' },
+  //   description: {
+  //     label: '프로젝트 설명',
+  //     description: '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
+  //   },
+  //   achieve: { label: '성과', description: '~~~~~~~~~~~~~~~~~~~~~~~~~' },
+  //   function: {
+  //     label: '기능',
+  //     description: '~~~~~~~/~~~~~~~~~~/~~~~~~~',
+  //   },
+  //   clientView: {
+  //     label: '프로젝트 사용자 화면',
+  //     description: 'src1/src2',
+  //   },
+  //   problems: {
+  //     label: '문제점',
+  //     description:
+  //       '문제점~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
+  //   },
+  //   solve: {
+  //     label: '해결방법',
+  //     description: '이렇게 해결~~~~~~~~~~~~~~~~~~~~~~~~',
+  //   },
+  //   mainImgSrc: { label: '메인 이미지', description: 'imgSrc' },
+  // },
   {
     num: 5,
     name: { label: '프로젝트명', description: '현재 포트폴리오' },
@@ -273,6 +295,10 @@ export const projects: projectsProps[] = [
       description: '이렇게 해결~~~~~~~~~~~~~~~~~~~~~~~~',
     },
     mainImgSrc: { label: '메인 이미지', description: 'imgSrc' },
+    topImgSrc: {
+      label: '상단 이미지',
+      description: '/projectImg/reserve/client/topMainImg',
+    },
   },
   // {
   //   num: 6,

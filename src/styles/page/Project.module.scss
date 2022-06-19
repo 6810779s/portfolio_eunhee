@@ -1,4 +1,12 @@
 @import '../mixin/variables';
+
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
 .container {
   width: 100%;
   height: 100%;
@@ -6,27 +14,41 @@
 .projectsListWrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 
   li {
     width: 300px;
-    height: 300px;
+    height: 320px;
     margin: 10px;
     border: 1px solid $borderColor;
+    box-sizing: content-box;
+    box-shadow: 5px 3px 6px $borderColor;
     &:hover {
       cursor: pointer;
+      will-change: transform;
+      transition: all 0.2s linear;
+      transform: rotate(2deg) scale(1.05);
     }
+
     .img {
+      width: 300px;
       height: 180px;
-      border: 1px solid $borderColor;
+      img {
+        width: 300px;
+        height: 180px;
+      }
     }
     .name {
-      height: calc((300px - 180px) / 2);
-      border: 1px solid $borderColor;
+      display: flex;
+      align-items: center;
+      height: calc(((320px - 180px) / 2));
       font-size: 20px;
       font-weight: 700;
       word-break: keep-all;
       line-height: 32px;
+      padding: 5px;
+    }
+    .launch {
+      padding: 5px;
     }
   }
 }
@@ -36,10 +58,11 @@
   overflow-y: scroll;
   padding-bottom: 120px;
   position: relative;
+
   .back {
     position: fixed;
-    top: 120px;
-    left: 390px;
+    top: 10px;
+    left: 10px;
     background-color: $mainColor;
     opacity: 0.8;
     color: white;
@@ -52,8 +75,23 @@
   .mainImg {
     width: 100%;
     height: 200px;
+    overflow-y: hidden;
+    border-bottom: 1px solid $borderColor;
+    box-shadow: 0 2px 5px $borderColor;
+    img {
+      width: 100%;
+      height: 500px;
+    }
   }
   .detailWrap {
+    width: 800px;
+    margin: auto;
+    h1 {
+      padding: 20px 0;
+    }
+    .description {
+      padding: 20px 0;
+    }
     .descriptionSimple {
       padding: 15px 0;
       display: flex;
@@ -74,6 +112,7 @@
         color: #5e5d5c;
         word-break: keep-all;
         padding-right: 10px;
+        padding-left: 0;
         // font-weight: 700;
       }
       .detailDescription {
@@ -83,10 +122,9 @@
           display: flex;
           flex-wrap: wrap;
           .bedge {
-            height: 24px;
+            height: 23px;
             padding: 0 5px;
-            margin-top: 5px;
-            margin-right: 5px;
+            margin: 3px 6px 3px 0;
             border: 1px solid $borderColor;
             background-color: $mainColor2;
             border-radius: 5px;

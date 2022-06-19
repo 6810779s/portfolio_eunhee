@@ -40,9 +40,11 @@ const Project = () => {
       projectsArr.push(
         <Link to={`/project/${v.num}`}>
           <li>
-            {/* <img src={`/${v.mainImgSrc}`} /> */}
-            <div className={styles.img}></div>
+            <div className={styles.img}>
+              <img src={v.mainImgSrc.description} />
+            </div>
             <p className={styles.name}>{v.name.description}</p>
+            <p className={styles.launch}>{v.date.description}</p>
             <p className={styles.launch}>{v.launch.description}</p>
           </li>
         </Link>

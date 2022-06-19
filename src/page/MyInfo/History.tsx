@@ -5,14 +5,34 @@ import { historyList, historyProps } from '../../module/history';
 import styles from '../../styles/page/MyInfo.module.scss';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import { useInView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+import {
+  changeMenuName,
+  changeSubMenuName,
+} from '../../redux/reducer/common/categorySlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/configureStore';
 
 const History = () => {
+  const dispatch = useDispatch();
+  const { currentSubMenuName } = useSelector(
+    (state: RootState) => state.category
+  );
+  const [ref, inView] = useInView();
   const liElement = useRef<HTMLUListElement>(null);
   const historyContainer = useRef<HTMLDivElement>(null);
   const scrollDownBtn = useRef<HTMLButtonElement>(null);
   const scrollUpBtn = useRef<HTMLButtonElement>(null);
-  const [listTag, setListTag] = useState<HTMLLIElement>();
   const [bottomNum, setBottomNum] = useState<number>(0);
+
+  useEffect(() => {
+    console.log('history:', inView);
+    if (inView) {
+      dispatch(changeMenuName('My Info'));
+      dispatch(changeSubMenuName('PUT/히스토리'));
+    }
+  }, [inView]);
   const delay = () => {
     const delayTime = 700;
     return new Promise((resolve) => setTimeout(resolve, delayTime));
@@ -88,7 +108,7 @@ const History = () => {
       <div className={styles.historyContainer} ref={historyContainer}>
         <ul className={styles.historyWrap} ref={liElement}></ul>
       </div>
-      <div className={styles.btnContainer}>
+      <div className={styles.btnContainer} ref={ref}>
         <Button
           className={styles.scrollBtnUp}
           ref={scrollUpBtn}

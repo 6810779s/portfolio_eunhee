@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/configureStore';
 import styles from '../../styles/page/Project.module.scss';
@@ -13,19 +13,28 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
-import { projectDetail } from '../../redux/reducer/pages/projectSlice';
+import { backAction } from '../../redux/reducer/pages/projectSlice';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { projects, projectsProps } from '../../module/projects';
+import {
+  changeMenuName,
+  changeSubMenuName,
+} from '../../redux/reducer/common/categorySlice';
 const ProjectDetail = () => {
   const dispatch = useDispatch();
-  const { projectInfo } = useSelector((state: RootState) => state.project);
+  let params = useParams();
+  const navigate = useNavigate();
+  const [projectInfo, setProjectInfo] = useState<projectsProps>();
+  useEffect(() => {
+    const idx = projects.findIndex((v) => Number(params.projectNum) === v.num);
+    setProjectInfo(projects[idx]);
+  }, []);
   const back = () => {
-    dispatch(projectDetail(0));
+    navigate(-1);
+    dispatch(backAction(true));
   };
-  // const skillItems = (list): JSX.Element[] => {
-  //   let items: JSX.Element[] = [];
-  //   list.map((v) => items.push);
-  //   return list;
-  // };
+
   const simpleItems = useCallback(
     (key: string): JSX.Element[] => {
       let itemArr: JSX.Element[] = [];

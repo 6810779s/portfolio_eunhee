@@ -1,12 +1,29 @@
-import React from 'react';
-import AppLayout from '../common/AppLayout';
+import React, { useEffect } from 'react';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import styles from '../styles/page/Home.module.scss';
-
+import { useInView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+import {
+  changeMenuName,
+  changeSubMenuName,
+} from '../redux/reducer/common/categorySlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/configureStore';
 const Home = () => {
+  const [ref, inView] = useInView();
+  const { currentSubMenuName } = useSelector(
+    (state: RootState) => state.category
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (inView) {
+      dispatch(changeMenuName('My Info'));
+      dispatch(changeSubMenuName('첫 인사'));
+    }
+  }, [inView]);
   return (
     <div className={styles.container}>
-      <div className={styles.myPhoto}>
+      <div className={styles.myPhoto} ref={ref}>
         <p>image</p>
       </div>
       <div className={styles.greetStyle}>

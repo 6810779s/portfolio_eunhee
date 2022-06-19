@@ -17,16 +17,17 @@ const Profile = () => {
     (state: RootState) => state.category
   );
   useEffect(() => {
-    console.log('profile:', inView);
-    if (inView && currentSubMenuName === 'GET/프로필') {
+    console.log('profile:', inView, currentSubMenuName);
+    if (inView) {
       dispatch(changeMenuName('My Info'));
       dispatch(changeSubMenuName('GET/프로필'));
     }
-  }, [inView]);
+  }, [inView, currentSubMenuName]);
+  console.log(currentSubMenuName);
   return (
     <MyInfoLayout>
-      <div ref={ref}>
-        <p>{`{ `}</p>
+      <div>
+        <p ref={ref}>{`{ `}</p>
         <p>
           &emsp;&emsp;<span>"이름"</span>: "장은희",
         </p>

@@ -27,7 +27,8 @@ const History = () => {
   const [bottomNum, setBottomNum] = useState<number>(0);
 
   useEffect(() => {
-    if (inView && currentSubMenuName === 'PUT/히스토리') {
+    console.log('history:', inView);
+    if (inView) {
       dispatch(changeMenuName('My Info'));
       dispatch(changeSubMenuName('PUT/히스토리'));
     }

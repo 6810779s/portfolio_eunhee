@@ -23,7 +23,7 @@ const Project = () => {
     (state: RootState) => state.category
   );
   useEffect(() => {
-    if (inView && currentSubMenuName === '프로젝트 소개') {
+    if (inView) {
       dispatch(changeMenuName('Project'));
       dispatch(changeSubMenuName('프로젝트 소개'));
       dispatch(backAction(false));
@@ -52,8 +52,10 @@ const Project = () => {
   };
 
   return (
-    <div className={styles.container} ref={ref}>
-      <ul className={styles.projectsListWrap}>{projectsList()}</ul>
+    <div className={styles.container}>
+      <ul className={styles.projectsListWrap} ref={ref}>
+        {projectsList()}
+      </ul>
     </div>
   );
 };

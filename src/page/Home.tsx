@@ -16,15 +16,14 @@ const Home = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    if (inView && currentSubMenuName==="첫 인사") {
-      console.log('dddddddddddddd');
+    if (inView) {
       dispatch(changeMenuName('My Info'));
       dispatch(changeSubMenuName('첫 인사'));
     }
-  }, [inView, currentSubMenuName]);
+  }, [inView]);
   return (
-    <div className={styles.container} ref={ref}>
-      <div className={styles.myPhoto}>
+    <div className={styles.container}>
+      <div className={styles.myPhoto} ref={ref}>
         <p>image</p>
       </div>
       <div className={styles.greetStyle}>

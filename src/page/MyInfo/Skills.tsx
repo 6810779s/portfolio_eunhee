@@ -27,7 +27,7 @@ const Skills = () => {
     (state: RootState) => state.category
   );
   useEffect(() => {
-    if (inView && currentSubMenuName === 'POST/기술스택') {
+    if (inView) {
       dispatch(changeMenuName('My Info'));
       dispatch(changeSubMenuName('POST/기술스택'));
     }
@@ -106,7 +106,11 @@ const Skills = () => {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell align="center" className={styles.tableCellTitleStyle}>
+              <TableCell
+                align="center"
+                className={styles.tableCellTitleStyle}
+                ref={ref}
+              >
                 스킬
               </TableCell>
               {tableBodySkills()}

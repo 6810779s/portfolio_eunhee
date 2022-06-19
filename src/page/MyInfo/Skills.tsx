@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MyInfoLayout from '../../common/MyInfoLayout';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,10 +10,28 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { level, skill, tools } from '../../module/skills';
 import classNames from 'classnames/bind';
 import styles from '../../styles/page/MyInfo.module.scss';
-import { width } from '@mui/system';
+import { useInView } from 'react-intersection-observer';
+import { useDispatch } from 'react-redux';
+import {
+  changeMenuName,
+  changeSubMenuName,
+} from '../../redux/reducer/common/categorySlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/configureStore';
 
 const cx = classNames.bind(styles);
 const Skills = () => {
+  const dispatch = useDispatch();
+  const [ref, inView] = useInView();
+  const { currentSubMenuName } = useSelector(
+    (state: RootState) => state.category
+  );
+  useEffect(() => {
+    if (inView && currentSubMenuName === 'POST/기술스택') {
+      dispatch(changeMenuName('My Info'));
+      dispatch(changeSubMenuName('POST/기술스택'));
+    }
+  }, [inView]);
   const tableHeader = (): JSX.Element[] => {
     let headArr: JSX.Element[] = [];
     level.map((v) =>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import styles from '../styles/common/MyInfoLayout.module.scss';
 import { useSelector } from 'react-redux';
@@ -20,7 +20,6 @@ const MyInfoLayout = ({ children }: MyInfoLayoutProps) => {
     apiAddress: '',
     response: '',
   });
-
   useEffect(() => {
     if (currentSubMenuName === 'GET/프로필') {
       setTitle({ apiAddress: '/profile?name=eunhee', response: 'Information' });

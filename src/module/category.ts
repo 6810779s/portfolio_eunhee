@@ -18,4 +18,13 @@ export const currentMenu = (menuName: string): string[] => {
   return menuArr;
 };
 
+interface scrollProps {
+  top: number;
+  left: number;
+  behavior: ScrollBehavior | undefined;
+}
+export const scrollEvent = (pageHeight: number): scrollProps => {
+  return { top: pageHeight, left: 0, behavior: 'smooth' };
+};
+
 export default category;

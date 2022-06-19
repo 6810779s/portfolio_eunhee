@@ -7,5 +7,5 @@ const History = React.lazy(() => import('../page/MyInfo/History'));
 const Project = React.lazy(() => import('../page/Project/Project'));
 const WhyMe = React.lazy(() => import('../page/WhyMe/WhyMe'));
 const ViewAll = React.lazy(() => import('../page/ViewAll'));
-
-export { Home, Profile, Skills, History, Project, WhyMe, ViewAll };
+const Container = React.lazy(() => import('../page/Container'));
+export { Container, Home, Profile, Skills, History, Project, WhyMe, ViewAll };

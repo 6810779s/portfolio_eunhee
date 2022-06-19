@@ -4,10 +4,12 @@ import { projects, projectsProps } from '../../../module/projects';
 interface projectStateProps {
   currentProjectNum: number;
   projectInfo: projectsProps | null;
+  back: boolean;
 }
 const initialState: projectStateProps = {
   currentProjectNum: 0,
   projectInfo: null,
+  back: false,
 };
 
 export const projectSlice = createSlice({
@@ -19,8 +21,11 @@ export const projectSlice = createSlice({
       state.projectInfo = projects[idx];
       state.currentProjectNum = action.payload;
     },
+    backAction: (state, action: PayloadAction<boolean>) => {
+      state.back = action.payload;
+    },
   },
 });
 
-export const { projectDetail } = projectSlice.actions;
+export const { projectDetail, backAction } = projectSlice.actions;
 export default projectSlice.reducer;

@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/configureStore';
 import styles from '../../styles/page/Project.module.scss';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -11,12 +9,26 @@ import LinkIcon from '@mui/icons-material/Link';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import ConstructionIcon from '@mui/icons-material/Construction';
+import UpgradeIcon from '@mui/icons-material/Upgrade';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import BugReportIcon from '@mui/icons-material/BugReport';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import { backAction } from '../../redux/reducer/pages/projectSlice';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import { useNavigate, useParams } from 'react-router-dom';
 import { projects, projectsProps } from '../../module/projects';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
 const ProjectDetail = () => {
   const dispatch = useDispatch();
   let params = useParams();
@@ -31,92 +43,49 @@ const ProjectDetail = () => {
     dispatch(backAction(true));
   };
 
-  const simpleItems = useCallback(
-    (key: string): JSX.Element[] => {
-      let itemArr: JSX.Element[] = [];
-      itemArr.push(
-        <>
-          <li>
-            {key === 'label' && (
-              <CalendarMonthIcon className={styles.iconStyle} />
-            )}
-            {projectInfo!.date[key]}
-          </li>
-          <li>
-            {key === 'label' && <LanguageIcon className={styles.iconStyle} />}
-            <div className={styles.bedgeWrap}>
-              {projectInfo!.language[key].split('/').map((v) => (
-                <p className={styles.bedge}>{v}</p>
-              ))}
-            </div>
-          </li>
-          <li>
-            {key === 'label' && (
-              <AutoFixHighIcon className={styles.iconStyle} />
-            )}
-            <div className={styles.bedgeWrap}>
-              {projectInfo!.skills[key].split('/').map((v) => (
-                <p className={styles.bedge}>{v}</p>
-              ))}
-            </div>
-          </li>
-          <li>
-            {key === 'label' && <PeopleIcon className={styles.iconStyle} />}
-            {projectInfo!.people[key]}
-          </li>
-          <li>
-            {key === 'label' && (
-              <AddShoppingCartIcon className={styles.iconStyle} />
-            )}
-            {projectInfo!.launch[key]}
-          </li>
-          <li>
-            {key === 'label' && <LinkIcon className={styles.iconStyle} />}
-            {projectInfo!.link[key]}
-          </li>
-          <li>
-            {key === 'label' && <GitHubIcon className={styles.iconStyle} />}
-            {projectInfo!.codeLink[key]}
-          </li>
-          <li>
-            {key === 'label' && (
-              <ManageAccountsIcon className={styles.iconStyle} />
-            )}
-            <div className={styles.bedgeWrap}>
-              {projectInfo!.charge[key].split('/').map((v) => (
-                <p className={styles.bedge}>{v}</p>
-              ))}
-            </div>
-          </li>
-          <li>
-            {key === 'label' && (
-              <MobileFriendlyIcon className={styles.iconStyle} />
-            )}
-            {projectInfo!.responsive[key]}
-          </li>
-        </>
-      );
-      return itemArr;
-    },
-    [projectInfo]
-  );
   const detailItems = useCallback(
     (labelKey: string, desKey: string): JSX.Element[] => {
       let itemArr: JSX.Element[] = [];
       itemArr.push(
         <>
-          <li className={styles.label}>{projectInfo!.function[labelKey]}</li>
-          <li>{projectInfo!.function[desKey]}</li>
           <li className={styles.label}>{projectInfo!.description[labelKey]}</li>
-          <li>{projectInfo!.description[desKey]}</li>
-          <li className={styles.label}>{projectInfo!.achieve[labelKey]}</li>
-          <li>{projectInfo!.achieve[desKey]}</li>
-          <li className={styles.label}>{projectInfo!.clientView[labelKey]}</li>
-          <li>{projectInfo!.clientView[desKey]}</li>
+          <li className={styles.description}>
+            {projectInfo!.description[desKey]}
+          </li>
+          <li className={styles.label}>{projectInfo!.function[labelKey]}</li>
+          <li className={styles.description}>
+            {projectInfo!.function[desKey].split('/').map((v) => (
+              <p>{v}</p>
+            ))}
+          </li>
           <li className={styles.label}>{projectInfo!.problems[labelKey]}</li>
-          <li>{projectInfo!.problems[desKey]}</li>
+          <li className={styles.description}>
+            {projectInfo!.problems[desKey]}
+          </li>
           <li className={styles.label}>{projectInfo!.solve[labelKey]}</li>
-          <li>{projectInfo!.solve[desKey]}</li>
+          <li className={styles.description}>{projectInfo!.solve[desKey]}</li>
+          <li className={styles.label}>{projectInfo!.achieve[labelKey]}</li>
+          <li className={styles.description}>{projectInfo!.achieve[desKey]}</li>
+
+          {/*클라이언트단 화면 보여주기 */}
+          <li className={styles.label}>{projectInfo!.clientView[labelKey]}</li>
+          <li className={styles.description}>
+            <div className={styles.imgSlideContainer}>
+              <div className={styles.imgSlide}>
+                {projectInfo!.clientView[desKey].split(',').map((v) => (
+                  <img src={v} className={styles.clientView} />
+                ))}
+              </div>
+              <div className={styles.buttonWrap}>
+                <Button className={styles.left}>
+                  <ArrowBackIosIcon />
+                </Button>
+                <Button className={styles.right}>
+                  <ArrowForwardIosIcon />
+                </Button>
+              </div>
+            </div>
+          </li>
         </>
       );
       return itemArr;
@@ -128,16 +97,215 @@ const ProjectDetail = () => {
     <>
       {projectInfo && (
         <div className={styles.projectDetailWrap}>
-          <div className={styles.mainImg}>
+          {/* <div className={styles.mainImg}>
             <img src={projectInfo.topImgSrc.description} />
-          </div>
+          </div> */}
           <div className={styles.detailWrap}>
             <h1>{projectInfo!.name.description}</h1>
             <div className={styles.descriptionSimple}>
-              <ul className={styles.detail}>{simpleItems('label')}</ul>
-              <ul className={styles.detailDescription}>
-                {simpleItems('description')}
-              </ul>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell
+                        colSpan={2}
+                        className={styles.tableCellHeadStyle}
+                      >
+                        개발기간 및 유지보수 기간
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <RocketLaunchIcon className={styles.iconStyle} />
+                          <p> {projectInfo.launchingDate.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.launchingDate.description}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <CalendarMonthIcon className={styles.iconStyle} />
+                          <p> {projectInfo.date.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.date.description}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <BugReportIcon className={styles.iconStyle} />
+                          <p> {projectInfo.testDate.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.testDate.description}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <UpgradeIcon className={styles.iconStyle} />
+                          <p> {projectInfo.refactoryDate.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.refactoryDate.description
+                          .split('/')
+                          .map((v) => (
+                            <p>{v}</p>
+                          ))}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell
+                        colSpan={2}
+                        className={styles.tableCellHeadStyle}
+                      >
+                        프로젝트 정보
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <AddShoppingCartIcon className={styles.iconStyle} />
+                          <p> {projectInfo.launch.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.launch.description}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <LanguageIcon className={styles.iconStyle} />
+                          <p> {projectInfo.language.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.bedgeWrap}>
+                          {projectInfo.language.description
+                            .split('/')
+                            .map((v) => (
+                              <p className={styles.bedge}>{v}</p>
+                            ))}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <AutoFixHighIcon className={styles.iconStyle} />
+                          <p> {projectInfo.skills.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.bedgeWrap}>
+                          {projectInfo.skills.description
+                            .split('/')
+                            .map((v) => (
+                              <p className={styles.bedge}>{v}</p>
+                            ))}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <ConstructionIcon className={styles.iconStyle} />
+                          <p> {projectInfo.tool.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.bedgeWrap}>
+                          {projectInfo.tool.description.split('/').map((v) => (
+                            <p className={styles.bedge}>{v}</p>
+                          ))}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <PeopleIcon className={styles.iconStyle} />
+                          <p> {projectInfo.people.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.people.description}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <ManageAccountsIcon className={styles.iconStyle} />
+                          <p> {projectInfo.charge.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.bedgeWrap}>
+                          {projectInfo.charge.description
+                            .split('/')
+                            .map((v) => (
+                              <p className={styles.bedge}>{v}</p>
+                            ))}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <LinkIcon className={styles.iconStyle} />
+                          <p> {projectInfo.link.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        <a
+                          href={`${projectInfo.link.description}`}
+                          target={'_blank'}
+                        >
+                          {projectInfo.link.description}
+                        </a>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <GitHubIcon className={styles.iconStyle} />
+                          <p> {projectInfo.codeLink.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.codeLink.description}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className={styles.tableCellStyle}>
+                        <div className={styles.labelWrap}>
+                          <MobileFriendlyIcon className={styles.iconStyle} />
+                          <p> {projectInfo.responsive.label}</p>
+                        </div>
+                      </TableCell>
+                      <TableCell className={styles.tableCellStyle}>
+                        {projectInfo.responsive.description}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </div>
             <hr />
             <div className={styles.descriptionDetail}>

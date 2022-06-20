@@ -40,6 +40,28 @@ const Project = () => {
       projectsArr.push(
         <Link to={`/project/${v.num}`}>
           <li>
+            <div className={styles.projectInfo}>
+              <div className={styles.title}>{v.language.label}</div>
+              <div className={styles.skill}>
+                {v.language.description.split('/').map((v) => (
+                  <p>{v}</p>
+                ))}
+              </div>
+              <hr />
+              <div className={styles.title}>{v.tool.label}</div>
+              <div className={styles.skill}>
+                {v.tool.description.split('/').map((v) => (
+                  <p>{v}</p>
+                ))}
+              </div>
+              <hr />
+              <div className={styles.title}>{v.skills.label}</div>
+              <div className={styles.skill}>
+                {v.skills.description.split('/').map((v) => (
+                  <p>{v}</p>
+                ))}
+              </div>
+            </div>
             <div className={styles.img}>
               <img src={v.mainImgSrc.description} />
             </div>

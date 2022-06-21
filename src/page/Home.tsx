@@ -23,9 +23,22 @@ const Home = () => {
   }, [inView]);
   return (
     <div className={styles.container}>
-      <div className={styles.myPhoto} ref={ref}>
-        <p>image</p>
+      <div className={styles.welcomeWrap} ref={ref}>
+        <div className={styles.welcomAction}>
+          <p>
+            <span>W</span>
+            <span>e</span>
+            <span>l</span>
+            <span>c</span>
+            <span>o</span>
+            <span>m</span>
+            <span>e</span>
+          </p>
+        </div>
       </div>
+      {/* <div className={styles.myPhoto} ref={ref}>
+        <p>image</p>
+      </div> */}
       <div className={styles.greetStyle}>
         <p>안녕하세요!</p>
         <p>프론트엔드 개발자 장은희입니다!</p>

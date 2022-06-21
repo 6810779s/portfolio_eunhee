@@ -16,6 +16,7 @@ import {
   changeMenuName,
   changeSubMenuName,
 } from '../redux/reducer/common/categorySlice';
+import { setInterval } from 'timers/promises';
 
 const cx = classNames.bind(styles);
 interface AppLayoutProps {
@@ -34,6 +35,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   const { back } = useSelector((state: RootState) => state.project);
 
   const sectionRef = useRef<HTMLDivElement>(null);
+  const starWrapRef = useRef<HTMLDivElement>(null);
+
+  const blinkEffect = (): void => {};
   useEffect(() => {
     const pageHeight = window.innerHeight - 30;
     if (back && sectionRef.current) {
@@ -42,6 +46,49 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       sectionRef.current.scrollTo(scrollEvent(pageHeight * 4));
     }
   }, []);
+  useEffect(() => {
+    //// <div className={styles.shooting_star}></div>
+    const starCnt = 20;
+    if (starWrapRef.current && sectionRef.current) {
+      while (starWrapRef.current.hasChildNodes()) {
+        if (starWrapRef.current.firstChild) {
+          starWrapRef.current.removeChild(starWrapRef.current.firstChild);
+        }
+      }
+
+      for (let i = 0; i < starCnt; i++) {
+        const x = Math.floor(Math.random() * sectionRef.current.clientWidth);
+        const y = Math.floor(Math.random() * 500) + 1;
+        const starWidth = Math.floor(Math.random() * 10) + 1;
+        const starDiv = document.createElement('div');
+        const blur = Math.floor(Math.random() * 3);
+        const blinkStyle = Math.floor(Math.random() * 3) + 1;
+        const delayTime = Math.floor(Math.random() * 5) + 1;
+        const shootingStarCnt = Math.floor(Math.random() * 5) + 1;
+        starDiv.style.width = starWidth + 'px';
+        starDiv.style.height = starWidth + 'px';
+        starDiv.style.top = y + 'px';
+        starDiv.style.left = x + 'px';
+        starDiv.style.filter = `blur(${blur}px)`;
+
+        if (i < shootingStarCnt) {
+          const shooting_starDiv = document.createElement('div');
+          shooting_starDiv.className = styles.shooting_star;
+          shooting_starDiv.style.top = y + 20 + 'px';
+          shooting_starDiv.style.left = x - 20 + 'px';
+          shooting_starDiv.style.animationDelay = delayTime + 's';
+          starWrapRef.current.appendChild(shooting_starDiv);
+        }
+        if (i % 3 === 0) {
+          starDiv.className = styles.star;
+        } else {
+          starDiv.className = styles[`starBlink${blinkStyle}`];
+        }
+
+        starWrapRef.current.appendChild(starDiv);
+      }
+    }
+  }, [currentSubMenuName]);
 
   const clickSubMenuHandler = (
     menuName: string,
@@ -215,7 +262,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                   <AutoGraphIcon />
                   <p>Project</p>
                 </li>
-                <li
+                {/* <li
                   className={cx({
                     currrentMenuStyle: currentMenuName === 'Why me?',
                   })}
@@ -245,7 +292,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
                 >
                   <PreviewIcon />
                   <p>View all</p>
-                </li>
+                </li> */}
               </ul>
             </nav>
             <aside>
@@ -260,7 +307,11 @@ const AppLayout = ({ children }: AppLayoutProps) => {
             <ArrowRightIcon />
             <p> {currentSubMenuName}</p>
           </div>
-          <section ref={sectionRef}>{children}</section>
+          <section ref={sectionRef}>
+            <div className={styles.starWrap} ref={starWrapRef}></div>
+            {/* <div className={styles.star} ref={starRef}></div> */}
+            {children}
+          </section>
         </div>
       </div>
     </div>

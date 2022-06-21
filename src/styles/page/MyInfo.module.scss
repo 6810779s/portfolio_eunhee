@@ -1,20 +1,45 @@
 @import '../mixin/variables';
 
+//프로필
+.profileWrap {
+  .blog {
+    a {
+      color: #ded9ab;
+      &:hover {
+        color: #d0eee9;
+      }
+    }
+  }
+}
+
 //스킬
 .skillTable {
   .tableCellTitleStyle {
     font-size: 18px;
     word-break: keep-all;
+    border-color: $bgColor;
+    color: white;
+    font-weight: 600;
   }
   .tableCellStyle {
+    color: white;
     font-size: 18px;
+    border-color: $bgColor;
+
     .skillBedge {
+      font-size: 18px;
       height: 25px;
       line-height: 25px;
       margin: 0 10px;
       word-break: keep-all;
       white-space: nowrap;
+      background-color: #d2d8e4;
+      padding: 2px 5px;
+      border-radius: 5px;
+      color: black;
+      position: relative;
       .logoImg {
+        padding-top: 5px;
         height: 23px;
       }
     }
@@ -51,7 +76,8 @@
       .time {
         width: 150px;
         text-align: right;
-        color: gray;
+        color: white;
+        font-size: 18px;
       }
       .imgSrc {
         width: 150px;
@@ -65,19 +91,21 @@
           height: 80px;
           padding: 10px;
           border-radius: 50%;
-          background-color: $mainColor2;
-          box-shadow: 10px 5px 5px $borderColor;
+          background-color: $subColor2;
+          box-shadow: 5px 5px 5px $darkBoxShadow;
         }
       }
       .title {
+        color: white;
         min-width: 300px;
         border-radius: 15px;
         border: 1px solid $borderColor;
         padding: 0 15px;
         flex: 1;
-        box-shadow: 10px 5px 5px $borderColor;
+        box-shadow: 5px 5px 7px $darkBoxShadow;
+        font-size: 20px;
         .fontStyle {
-          color: black;
+          color: white;
           font-size: 16px;
           border-top: 1px solid $borderColor;
         }
@@ -85,6 +113,7 @@
     }
   }
 }
+
 .btnContainer {
   position: absolute;
   display: flex;

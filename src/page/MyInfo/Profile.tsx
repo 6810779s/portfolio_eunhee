@@ -26,7 +26,7 @@ const Profile = () => {
   console.log(currentSubMenuName);
   return (
     <MyInfoLayout>
-      <div>
+      <div className={styles.profileWrap}>
         <p ref={ref}>{`{ `}</p>
         <p>
           &emsp;&emsp;<span>"이름"</span>: "장은희",
@@ -37,7 +37,7 @@ const Profile = () => {
         <p>
           &emsp;&emsp;<span>"생년월일"</span>: "1997.07.22",
         </p>
-        <p>
+        <p className={styles.blog}>
           &emsp;&emsp;<span>"블로그"</span>:{' '}
           <a href="https://eunhee-programming.tistory.com/">
             "https://eunhee-programming.tistory.com/"

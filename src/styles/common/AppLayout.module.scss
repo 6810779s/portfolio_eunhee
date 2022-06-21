@@ -95,6 +95,120 @@ li {
   }
   .contentsWrap {
     width: 100%;
+    position: relative;
+    .starWrap {
+      width: 100%;
+      height: 500px;
+      position: absolute;
+      top: 20%;
+      transform: rotate(30deg);
+
+      .shooting_star {
+        z-index: -1;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        // width: 100px;
+        height: 2px;
+        background: linear-gradient(
+          -45deg,
+          rgba(95, 145, 255, 1),
+          rgba(0, 0, 255, 0)
+        );
+        border-radius: 999px;
+        filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+        animation: tail $shooting-time ease-in-out infinite,
+          shooting $shooting-time ease-in-out infinite;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: calc(50% - 1px);
+          right: 0;
+          // width: 30px;
+          height: 2px;
+          background: linear-gradient(
+            -45deg,
+            rgba(0, 0, 255, 0),
+            rgba(95, 145, 255, 1),
+            rgba(0, 0, 255, 0)
+          );
+          transform: translateX(50%) rotateZ(45deg);
+          border-radius: 100%;
+          animation: shining $shooting-time ease-in-out infinite;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: calc(50% - 1px);
+          right: 0;
+          // width: 30px;
+          height: 2px;
+          background: linear-gradient(
+            -45deg,
+            rgba(0, 0, 255, 0),
+            rgba(95, 145, 255, 1),
+            rgba(0, 0, 255, 0)
+          );
+          transform: translateX(50%) rotateZ(-45deg);
+          border-radius: 100%;
+          animation: shining $shooting-time ease-in-out infinite;
+        }
+
+        // @for $i from 1 through 5 {
+        //   &:nth-child(#{$i}) {
+        //     $delay: random(9999) + 0ms;
+        //     animation-delay: $delay;
+        //     // opacity: random(50) / 100 + 0.5;
+
+        //     &::before,
+        //     &::after {
+        //       animation-delay: $delay;
+        //     }
+        //   }
+        // }
+      }
+      .star {
+        position: absolute;
+        filter: blur(2px);
+        background: -webkit-radial-gradient(
+          rgba(255, 255, 255, 0.973),
+          rgba(255, 255, 255, 0.163)
+        );
+        border-radius: 50%;
+      }
+      .starBlink1 {
+        position: absolute;
+        transition: all 3s linear;
+        background: -webkit-radial-gradient(
+          rgba(255, 255, 255, 0.973),
+          rgba(255, 255, 255, 0.163)
+        );
+        border-radius: 50%;
+        animation: blink-effect 3s 3s linear infinite;
+      }
+      .starBlink2 {
+        position: absolute;
+        transition: all 3s linear;
+        background: -webkit-radial-gradient(
+          rgba(255, 255, 255, 0.973),
+          rgba(255, 255, 255, 0.163)
+        );
+        border-radius: 50%;
+        animation: blink-effect 4s 1s linear infinite;
+      }
+      .starBlink3 {
+        position: absolute;
+        transition: all 3s linear;
+        background: -webkit-radial-gradient(
+          rgba(255, 255, 255, 0.973),
+          rgba(255, 255, 255, 0.163)
+        );
+        border-radius: 50%;
+        animation: blink-effect 2s 5s linear infinite;
+      }
+    }
+
     .tabBar {
       height: 50px;
       // line-height: 50px;
@@ -102,14 +216,108 @@ li {
       display: flex;
       align-items: center;
       border-bottom: 1.5px solid $borderColor;
+      box-shadow: 2px 1px 5px black;
     }
     section {
       height: 100%;
       padding: 15px;
       overflow-y: auto;
+      background: -webkit-linear-gradient($bgColor, $bgColor2);
       &::-webkit-scrollbar {
         display: none;
       }
     }
+  }
+}
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes tail {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+@-webkit-keyframes shining {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+@-webkit-keyframes shooting {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+  }
+}
+@keyframes shooting {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+  }
+}
+@-webkit-keyframes sky {
+  0% {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(405deg);
+    transform: rotate(405deg);
+  }
+}
+@keyframes sky {
+  0% {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(405deg);
+    transform: rotate(405deg);
   }
 }

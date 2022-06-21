@@ -2,6 +2,12 @@ $mainColor: #5056b7;
 $mainColor2: #5055b748;
 $borderColor: #e6e4e4;
 $borderColor2: #f2f2f2;
+$subColor: #ded9ab;
+$subColor2: #4d988c;
+$bgColor: #020530;
+$bgColor2: #383847;
+$bedgeColor: #d2d8e4;
+$darkBoxShadow: #0000006e;
 
 $barTitleWidth: 380px;
 $menuNavWidth: 80px;
@@ -11,7 +17,7 @@ $minWidth: 500px;
 @mixin borderRight {
   border-right: 1px solid $borderColor;
 }
-
+$shooting-time: 5s;
 @mixin reWrapStyle {
   margin-top: 20px;
 

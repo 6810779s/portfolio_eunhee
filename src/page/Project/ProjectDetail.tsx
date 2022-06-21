@@ -68,22 +68,15 @@ const ProjectDetail = () => {
           <li className={styles.description}>{projectInfo!.achieve[desKey]}</li>
 
           {/*클라이언트단 화면 보여주기 */}
-          <li className={styles.label}>{projectInfo!.clientView[labelKey]}</li>
+          <li className={styles.label}>
+            {projectInfo!.clientView[labelKey]}{' '}
+            <span className={styles.helper}>*사진에 마우스를 갖다대세요!</span>
+          </li>
           <li className={styles.description}>
-            <div className={styles.imgSlideContainer}>
-              <div className={styles.imgSlide}>
-                {projectInfo!.clientView[desKey].split(',').map((v) => (
-                  <img src={v} className={styles.clientView} />
-                ))}
-              </div>
-              <div className={styles.buttonWrap}>
-                <Button className={styles.left}>
-                  <ArrowBackIosIcon />
-                </Button>
-                <Button className={styles.right}>
-                  <ArrowForwardIosIcon />
-                </Button>
-              </div>
+            <div className={styles.imgContainer}>
+              {projectInfo!.clientView[desKey].split(',').map((v) => (
+                <img src={v} className={styles.clientView} />
+              ))}
             </div>
           </li>
         </>

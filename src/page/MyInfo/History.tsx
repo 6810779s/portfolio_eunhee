@@ -31,6 +31,7 @@ const History = () => {
     if (inView) {
       dispatch(changeMenuName('My Info'));
       dispatch(changeSubMenuName('PUT/히스토리'));
+      result(historyList);
     }
   }, [inView]);
   const delay = () => {
@@ -98,10 +99,6 @@ const History = () => {
       }
     }
   }, [bottomNum]);
-
-  useEffect(() => {
-    result(historyList);
-  }, []);
 
   return (
     <MyInfoLayout>

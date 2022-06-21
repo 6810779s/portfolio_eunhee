@@ -21,8 +21,9 @@ a {
     margin: 10px;
     border: 1px solid $borderColor;
     box-sizing: content-box;
-    box-shadow: 5px 3px 6px $borderColor;
+    box-shadow: 5px 8px 6px $darkBoxShadow;
     position: relative;
+    background-color: $bedgeColor;
     .projectInfo {
       width: 300px;
       height: 320px;
@@ -35,6 +36,7 @@ a {
       font-weight: 700;
       opacity: 0;
       transition: all 0.3s ease-in-out;
+
       .title {
         text-align: center;
         padding: 5px 0;
@@ -174,40 +176,70 @@ a {
       .label {
         font-size: 18px;
         font-weight: 700;
+        .helper {
+          font-size: 13px;
+          font-weight: 500;
+          color: red;
+          animation: twinkle 2.5s linear 1s infinite;
+        }
       }
       .description {
         margin-bottom: 15px;
         line-height: 35px;
         font-size: 18px;
-        .imgSlideContainer {
-          position: relative;
-          width: 600px;
-          height: 600px;
-          overflow-x: hidden;
-          margin: auto;
-          .imgSlide {
-            display: flex;
-            width: 600px;
-            height: 600px;
-            position: absolute;
-            .clientView {
-              border: 1px solid $borderColor;
-              top: 0;
-              left: 0;
-              width: 600px;
-              height: 600px;
-              margin: auto;
-            }
-            .buttonWrap {
-              position: absolute;
-              .left {
-                top: 50%;
-                transform: translateY(-50%);
-              }
+        .imgContainer {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          .clientView {
+            width: 220px;
+            height: 240px;
+            margin-bottom: 20px;
+            border: 1px solid $borderColor;
+            &:hover {
+              cursor: zoom-in;
+              transform: scale(2);
             }
           }
         }
+        // .imgSlideContainer {
+        //   position: relative;
+        //   width: 600px;
+        //   height: 600px;
+        //   overflow-x: hidden;
+        //   margin: auto;
+        //   .imgSlide {
+        //     display: flex;
+        //     width: 600px;
+        //     height: 600px;
+        //     position: absolute;
+        //     .clientView {
+        //       border: 1px solid $borderColor;
+        //       top: 0;
+        //       left: 0;
+        //       width: 600px;
+        //       height: 600px;
+        //       margin: auto;
+        //     }
+        //     .buttonWrap {
+        //       position: absolute;
+        //       .left {
+        //         top: 50%;
+        //         transform: translateY(-50%);
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
+  }
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

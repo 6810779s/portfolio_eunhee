@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/50.52b94110.chunk.js","mappings":"sIAMA,UAJgB,WACd,OAAO","sources":["page/ViewAll.tsx"],"sourcesContent":["import React from 'react';\n\nconst ViewAll = () => {\n  return <div>한눈에 보기</div>;\n};\n\nexport default ViewAll;\n"],"names":[],"sourceRoot":""}

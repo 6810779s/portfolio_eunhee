@@ -1,4 +1,7 @@
 @import '../mixin/variables';
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +12,7 @@ html,
 body {
   height: 100%;
   overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 li {
@@ -20,6 +24,9 @@ li {
   line-height: 60px;
   font-size: 30px;
   border-bottom: 1px solid $borderColor;
+  background-color: $bgColor;
+  color: white;
+  font-family: 'Caveat', cursive;
 }
 
 .contentsContainer {
@@ -34,10 +41,14 @@ li {
       align-items: center;
       @include borderRight;
       border-bottom: 1.5px solid $borderColor;
+      background-color: $bgColor;
+      color: white;
     }
     .categoryWrap {
       display: flex;
       height: 100%;
+      background: -webkit-linear-gradient($bgColor, $bgColor2);
+      color: white;
       .menuNav {
         width: $menuNavWidth;
         height: 100%;
@@ -51,11 +62,13 @@ li {
             align-items: center;
             cursor: pointer;
             &:hover {
-              background-color: $borderColor;
+              background-color: $bedgeColor;
+              color: black;
             }
           }
           .currrentMenuStyle {
-            background-color: $borderColor;
+            background-color: $bedgeColor;
+            color: black;
           }
         }
       }
@@ -70,6 +83,7 @@ li {
 
           span {
             font-size: 13px;
+            font-weight: 600;
           }
           .getStyle {
             color: #7bc681;
@@ -82,13 +96,15 @@ li {
           }
 
           &:hover {
-            background-color: $borderColor;
+            background-color: $bedgeColor;
+            color: black;
             cursor: pointer;
           }
         }
         .currentSubMenu {
           border-left: 3px solid $mainColor;
-          background-color: $borderColor;
+          background-color: $bedgeColor;
+          color: black;
         }
       }
     }
@@ -217,6 +233,8 @@ li {
       align-items: center;
       border-bottom: 1.5px solid $borderColor;
       box-shadow: 2px 1px 5px black;
+      background-color: $bgColor;
+      color: white;
     }
     section {
       height: 100%;

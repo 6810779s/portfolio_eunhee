@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/275.99f3623a.chunk.js","mappings":"uIAWA,UARc,WACV,OACI","sources":["page/WhyMe/WhyMe.tsx"],"sourcesContent":["import React from 'react';\nimport AppLayout from '../../common/AppLayout';\n\nconst WhyMe = () => {\n    return (\n        <>\n            Why Me?\n        </>\n    );\n};\n\nexport default WhyMe;"],"names":[],"sourceRoot":""}

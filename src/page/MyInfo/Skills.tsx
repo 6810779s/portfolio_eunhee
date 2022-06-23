@@ -63,7 +63,10 @@ const Skills = () => {
         >
           {v.skills.map((v) => (
             <span className={styles.skillBedge}>
-              <img src={`logoImg/${v}.png`} className={styles.logoImg} />
+              <img
+                src={`portfolio_eunhee/logoImg/${v}.png`}
+                className={styles.logoImg}
+              />
               {v}
             </span>
           ))}
@@ -80,10 +83,7 @@ const Skills = () => {
       bodyArr.push(
         <TableCell align="center" colSpan={3} className={styles.tableCellStyle}>
           {v.skills.map((v) => (
-            <span className={styles.skillBedge}>
-              {/* <img src={`logoImg/${v}.png`} className={styles.logoImg} /> */}
-              {v}
-            </span>
+            <span className={styles.skillBedge}>{v}</span>
           ))}
         </TableCell>
       )

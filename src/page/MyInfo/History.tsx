@@ -46,7 +46,10 @@ const History = () => {
         timeDiv.className = styles.time;
         timeDiv.innerText = `${data.time}`;
         const imgTag = document.createElement('img');
-        imgTag.setAttribute('src', `/historyImg/${data.imgSrc}.png`);
+        imgTag.setAttribute(
+          'src',
+          `portfolio_eunhee/historyImg/${data.imgSrc}.png`
+        );
         imgTag.className = styles.historyImg;
         imgTag.setAttribute('alt', `${data.imgSrc}`);
         const imgDiv = document.createElement('div');

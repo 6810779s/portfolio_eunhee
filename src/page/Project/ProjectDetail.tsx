@@ -75,7 +75,7 @@ const ProjectDetail = () => {
           <li className={styles.description}>
             <div className={styles.imgContainer}>
               {projectInfo!.clientView[desKey].split(',').map((v) => (
-                <img src={v} className={styles.clientView} />
+                <img src={`${v}`} className={styles.clientView} />
               ))}
             </div>
           </li>
@@ -109,17 +109,19 @@ const ProjectDetail = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    <TableRow>
-                      <TableCell className={styles.tableCellStyle}>
-                        <div className={styles.labelWrap}>
-                          <RocketLaunchIcon className={styles.iconStyle} />
-                          <p> {projectInfo.launchingDate.label}</p>
-                        </div>
-                      </TableCell>
-                      <TableCell className={styles.tableCellStyle}>
-                        {projectInfo.launchingDate.description}
-                      </TableCell>
-                    </TableRow>
+                    {projectInfo.launchingDate.description !== '' && (
+                      <TableRow>
+                        <TableCell className={styles.tableCellStyle}>
+                          <div className={styles.labelWrap}>
+                            <RocketLaunchIcon className={styles.iconStyle} />
+                            <p> {projectInfo.launchingDate.label}</p>
+                          </div>
+                        </TableCell>
+                        <TableCell className={styles.tableCellStyle}>
+                          {projectInfo.launchingDate.description}
+                        </TableCell>
+                      </TableRow>
+                    )}
                     <TableRow>
                       <TableCell className={styles.tableCellStyle}>
                         <div className={styles.labelWrap}>
@@ -142,21 +144,23 @@ const ProjectDetail = () => {
                         {projectInfo.testDate.description}
                       </TableCell>
                     </TableRow>
-                    <TableRow>
-                      <TableCell className={styles.tableCellStyle}>
-                        <div className={styles.labelWrap}>
-                          <UpgradeIcon className={styles.iconStyle} />
-                          <p> {projectInfo.refactoryDate.label}</p>
-                        </div>
-                      </TableCell>
-                      <TableCell className={styles.tableCellStyle}>
-                        {projectInfo.refactoryDate.description
-                          .split('/')
-                          .map((v) => (
-                            <p>{v}</p>
-                          ))}
-                      </TableCell>
-                    </TableRow>
+                    {projectInfo.refactoryDate.description !== '' && (
+                      <TableRow>
+                        <TableCell className={styles.tableCellStyle}>
+                          <div className={styles.labelWrap}>
+                            <UpgradeIcon className={styles.iconStyle} />
+                            <p> {projectInfo.refactoryDate.label}</p>
+                          </div>
+                        </TableCell>
+                        <TableCell className={styles.tableCellStyle}>
+                          {projectInfo.refactoryDate.description
+                            .split('/')
+                            .map((v) => (
+                              <p>{v}</p>
+                            ))}
+                        </TableCell>
+                      </TableRow>
+                    )}
                   </TableBody>
                   <TableHead>
                     <TableRow>
@@ -169,17 +173,19 @@ const ProjectDetail = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    <TableRow>
-                      <TableCell className={styles.tableCellStyle}>
-                        <div className={styles.labelWrap}>
-                          <AddShoppingCartIcon className={styles.iconStyle} />
-                          <p> {projectInfo.launch.label}</p>
-                        </div>
-                      </TableCell>
-                      <TableCell className={styles.tableCellStyle}>
-                        {projectInfo.launch.description}
-                      </TableCell>
-                    </TableRow>
+                    {projectInfo.launch.description !== '' && (
+                      <TableRow>
+                        <TableCell className={styles.tableCellStyle}>
+                          <div className={styles.labelWrap}>
+                            <AddShoppingCartIcon className={styles.iconStyle} />
+                            <p> {projectInfo.launch.label}</p>
+                          </div>
+                        </TableCell>
+                        <TableCell className={styles.tableCellStyle}>
+                          {projectInfo.launch.description}
+                        </TableCell>
+                      </TableRow>
+                    )}
                     <TableRow>
                       <TableCell className={styles.tableCellStyle}>
                         <div className={styles.labelWrap}>
@@ -282,7 +288,9 @@ const ProjectDetail = () => {
                         </div>
                       </TableCell>
                       <TableCell className={styles.tableCellStyle}>
-                        {projectInfo.codeLink.description}
+                        <a href={`${projectInfo.codeLink.description}`}>
+                          {projectInfo.codeLink.description}
+                        </a>
                       </TableCell>
                     </TableRow>
                     <TableRow>

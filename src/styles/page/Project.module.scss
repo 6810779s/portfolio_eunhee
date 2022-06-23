@@ -136,7 +136,11 @@ a {
       .tableCellStyle {
         border: none;
         font-size: 18px;
-
+        a {
+          &:hover {
+            color: $mainColor;
+          }
+        }
         .bedgeWrap {
           display: flex;
           flex-wrap: wrap;
@@ -190,11 +194,13 @@ a {
         .imgContainer {
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-between;
+
+          // justify-content: center;
           .clientView {
             width: 220px;
-            height: 240px;
+            height: 200px;
             margin-bottom: 20px;
+            margin-right: 20px;
             border: 1px solid $borderColor;
             &:hover {
               cursor: zoom-in;
@@ -202,34 +208,6 @@ a {
             }
           }
         }
-        // .imgSlideContainer {
-        //   position: relative;
-        //   width: 600px;
-        //   height: 600px;
-        //   overflow-x: hidden;
-        //   margin: auto;
-        //   .imgSlide {
-        //     display: flex;
-        //     width: 600px;
-        //     height: 600px;
-        //     position: absolute;
-        //     .clientView {
-        //       border: 1px solid $borderColor;
-        //       top: 0;
-        //       left: 0;
-        //       width: 600px;
-        //       height: 600px;
-        //       margin: auto;
-        //     }
-        //     .buttonWrap {
-        //       position: absolute;
-        //       .left {
-        //         top: 50%;
-        //         transform: translateY(-50%);
-        //       }
-        //     }
-        //   }
-        // }
       }
     }
   }

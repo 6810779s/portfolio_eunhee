@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/portfolio_eunhee/static/css/main.efbd6bdc.css",
+    "main.js": "/portfolio_eunhee/static/js/main.cfa7e153.js",
+    "static/css/758.7ffb487a.chunk.css": "/portfolio_eunhee/static/css/758.7ffb487a.chunk.css",
+    "static/js/758.22bf5741.chunk.js": "/portfolio_eunhee/static/js/758.22bf5741.chunk.js",
+    "static/css/759.e9b89b1f.chunk.css": "/portfolio_eunhee/static/css/759.e9b89b1f.chunk.css",
+    "static/js/759.efc12a7d.chunk.js": "/portfolio_eunhee/static/js/759.efc12a7d.chunk.js",
+    "static/css/327.6a9ae18d.chunk.css": "/portfolio_eunhee/static/css/327.6a9ae18d.chunk.css",
+    "static/js/327.f8db1cd0.chunk.js": "/portfolio_eunhee/static/js/327.f8db1cd0.chunk.js",
+    "static/css/792.6a9ae18d.chunk.css": "/portfolio_eunhee/static/css/792.6a9ae18d.chunk.css",
+    "static/js/792.37fb573f.chunk.js": "/portfolio_eunhee/static/js/792.37fb573f.chunk.js",
+    "static/js/337.fe8d04c1.chunk.js": "/portfolio_eunhee/static/js/337.fe8d04c1.chunk.js",
+    "static/js/275.99f3623a.chunk.js": "/portfolio_eunhee/static/js/275.99f3623a.chunk.js",
+    "static/js/50.52b94110.chunk.js": "/portfolio_eunhee/static/js/50.52b94110.chunk.js",
+    "static/css/795.4956db6c.chunk.css": "/portfolio_eunhee/static/css/795.4956db6c.chunk.css",
+    "static/js/795.0e1e138f.chunk.js": "/portfolio_eunhee/static/js/795.0e1e138f.chunk.js",
+    "static/js/213.de9a8895.chunk.js": "/portfolio_eunhee/static/js/213.de9a8895.chunk.js",
+    "index.html": "/portfolio_eunhee/index.html",
+    "main.efbd6bdc.css.map": "/portfolio_eunhee/static/css/main.efbd6bdc.css.map",
+    "main.cfa7e153.js.map": "/portfolio_eunhee/static/js/main.cfa7e153.js.map",
+    "758.7ffb487a.chunk.css.map": "/portfolio_eunhee/static/css/758.7ffb487a.chunk.css.map",
+    "758.22bf5741.chunk.js.map": "/portfolio_eunhee/static/js/758.22bf5741.chunk.js.map",
+    "759.e9b89b1f.chunk.css.map": "/portfolio_eunhee/static/css/759.e9b89b1f.chunk.css.map",
+    "759.efc12a7d.chunk.js.map": "/portfolio_eunhee/static/js/759.efc12a7d.chunk.js.map",
+    "327.6a9ae18d.chunk.css.map": "/portfolio_eunhee/static/css/327.6a9ae18d.chunk.css.map",
+    "327.f8db1cd0.chunk.js.map": "/portfolio_eunhee/static/js/327.f8db1cd0.chunk.js.map",
+    "792.6a9ae18d.chunk.css.map": "/portfolio_eunhee/static/css/792.6a9ae18d.chunk.css.map",
+    "792.37fb573f.chunk.js.map": "/portfolio_eunhee/static/js/792.37fb573f.chunk.js.map",
+    "337.fe8d04c1.chunk.js.map": "/portfolio_eunhee/static/js/337.fe8d04c1.chunk.js.map",
+    "275.99f3623a.chunk.js.map": "/portfolio_eunhee/static/js/275.99f3623a.chunk.js.map",
+    "50.52b94110.chunk.js.map": "/portfolio_eunhee/static/js/50.52b94110.chunk.js.map",
+    "795.4956db6c.chunk.css.map": "/portfolio_eunhee/static/css/795.4956db6c.chunk.css.map",
+    "795.0e1e138f.chunk.js.map": "/portfolio_eunhee/static/js/795.0e1e138f.chunk.js.map",
+    "213.de9a8895.chunk.js.map": "/portfolio_eunhee/static/js/213.de9a8895.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.efbd6bdc.css",
+    "static/js/main.cfa7e153.js"
+  ]
+}
